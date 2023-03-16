@@ -280,8 +280,6 @@ public:
 	{
 		START_BANNER;
 
-		/*std::unique_lock<std::mutex> lock_key(mtx_key);
-		cv_key.wait(lock_key);*/
 
 		std::unique_lock<std::mutex> lock(CtrlSingleton::GetMutex());
 		CtrlSingleton::GetCV().wait(lock);
