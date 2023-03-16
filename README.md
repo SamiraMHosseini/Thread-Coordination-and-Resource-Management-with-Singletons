@@ -28,3 +28,14 @@ In this code, the CtrlSingleton and ThrdCounter classes are implemented as Singl
 The Singleton pattern is used here to manage shared resources (mutex and condition variables) and to coordinate the execution of threads in a synchronized manner. By using the Singleton pattern, the code ensures that all threads interact with the same instance of the CtrlSingleton and ThrdCounter classes, providing a consistent and controlled way of managing synchronization and thread coordination.
 
 However, it is worth noting that the Singleton pattern can sometimes be considered an anti-pattern due to its global state and potential issues with testing and maintainability. As such, it's important to carefully consider when and how to use it in your projects. In this particular case, the Singleton pattern seems to be a suitable choice for managing shared resources and coordinating threads.
+  
+# A brief overview of CtrlSingleton's functionality 
+  
+In the code above, CtrlSingleton is a Singleton class that manages the synchronization between the main thread and other spawned threads. It contains a mutex and a condition variable that are used to coordinate the execution of threads in the program.
+
+Here's a brief overview of its functionality:
+
+The GetInstance() method returns a reference to the unique instance of the CtrlSingleton class, ensuring that only one instance is created and used throughout the program.
+The GetMutex() method returns a reference to the mutex (mtx_key) in the CtrlSingleton instance. This mutex is used to synchronize access to shared resources or code sections between different threads.
+The GetCV() method returns a reference to the condition variable (cv_key) in the CtrlSingleton instance. This condition variable is used to block or notify threads in a synchronized manner.
+In the main part of the code, the CtrlSingleton is used by the Controller class, which acts as a thread controller. The Controller class waits for a keypress from the user and then sends a signal to terminate the other spawned threads (A, B, C, and D). The CtrlSingleton's mutex and condition variable are used to synchronize the keypress event and the termination of the threads.
