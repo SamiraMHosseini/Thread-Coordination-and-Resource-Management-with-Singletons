@@ -25,6 +25,6 @@ It is particularly useful when you need to coordinate actions across multiple th
 
 In this code, the CtrlSingleton and ThrdCounter classes are implemented as Singletons, ensuring that only one instance of each class is created throughout the program. The methods GetInstance() in both classes are responsible for creating and returning the unique instances.
 
-The Singleton pattern is used here to manage shared resources (mutex and condition variables) and to coordinate the execution of threads in a synchronized manner. By using the Singleton pattern, the code ensures that all threads interact with the same instance of the ControllerSingleton and TCSingleton classes, providing a consistent and controlled way of managing synchronization and thread coordination.
+The Singleton pattern is used here to manage shared resources (mutex and condition variables) and to coordinate the execution of threads in a synchronized manner. By using the Singleton pattern, the code ensures that all threads interact with the same instance of the CtrlSingleton and ThrdCounter classes, providing a consistent and controlled way of managing synchronization and thread coordination.
 
 However, it is worth noting that the Singleton pattern can sometimes be considered an anti-pattern due to its global state and potential issues with testing and maintainability. As such, it's important to carefully consider when and how to use it in your projects. In this particular case, the Singleton pattern seems to be a suitable choice for managing shared resources and coordinating threads.
