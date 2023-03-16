@@ -54,13 +54,13 @@ These classes are designed to ensure that only one instance of each class exists
 
 # Singleton patterns are used in this code for the following reasons:
 
-Resource sharing: The Singleton pattern allows multiple threads to share resources like the mutex and condition variable in a controlled manner. In this code, the CtrlSingleton class provides a shared mutex and condition variable used by the Controller thread, while the ThrdCounter class provides shared resources to keep track of the number of active threads.
+1) Resource sharing: The Singleton pattern allows multiple threads to share resources like the mutex and condition variable in a controlled manner. In this code, the CtrlSingleton class provides a shared mutex and condition variable used by the Controller thread, while the ThrdCounter class provides shared resources to keep track of the number of active threads.
 
 
-Ensuring consistency: The Singleton pattern ensures that there is only one instance of each class, maintaining consistency across the application. For example, ThrdCounter's instance keeps track of the number of active threads, and if multiple instances were allowed, the count might become inconsistent.
+2) Ensuring consistency: The Singleton pattern ensures that there is only one instance of each class, maintaining consistency across the application. For example, ThrdCounter's instance keeps track of the number of active threads, and if multiple instances were allowed, the count might become inconsistent.
 
 
-Encapsulation: Singleton classes encapsulate their resources and provide controlled access to them. This promotes better organization and makes the code more maintainable.
+3) Encapsulation: Singleton classes encapsulate their resources and provide controlled access to them. This promotes better organization and makes the code more maintainable.
 
 
 In summary, the Singleton pattern is used in this code to manage shared resources and ensure consistency across the application while also providing a clear and maintainable structure.
