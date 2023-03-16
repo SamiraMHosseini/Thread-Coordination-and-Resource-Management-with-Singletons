@@ -295,8 +295,7 @@ public:
 
 int main()
 {
-	// time to move the console window over 
-	//std::this_thread::sleep_for(3s);
+	
 
 	START_BANNER_MAIN("main");
 
