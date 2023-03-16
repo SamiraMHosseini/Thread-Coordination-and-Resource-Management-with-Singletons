@@ -42,4 +42,26 @@ The GetMutex() method returns a reference to the mutex (mtx_key) in the CtrlSing
 The GetCV() method returns a reference to the condition variable (cv_key) in the CtrlSingleton instance. This condition variable is used to block or notify threads in a synchronized manner.
   
 In the main part of the code, the CtrlSingleton is used by the Controller class, which acts as a thread controller. The Controller class waits for a keypress from the user and then sends a signal to terminate the other spawned threads (A, B, C, and D). The CtrlSingleton's mutex and condition variable are used to synchronize the keypress event and the termination of the threads.
+
+ # CtrlSingleton and ThrdCounter as Singleton classes
+These classes are designed to ensure that only one instance of each class exists throughout the program's lifetime. They achieve this by:
+
+1) Making the constructors private, which prevents external instantiation.
+
+2) Deleting the copy constructor and assignment operator, preventing copying and assignment.
+
+3) Using a static GetInstance() function that returns a reference to the single instance of the class.
+
+# Singleton patterns are used in this code for the following reasons:
+
+Resource sharing: The Singleton pattern allows multiple threads to share resources like the mutex and condition variable in a controlled manner. In this code, the CtrlSingleton class provides a shared mutex and condition variable used by the Controller thread, while the ThrdCounter class provides shared resources to keep track of the number of active threads.
+
+
+Ensuring consistency: The Singleton pattern ensures that there is only one instance of each class, maintaining consistency across the application. For example, ThrdCounter's instance keeps track of the number of active threads, and if multiple instances were allowed, the count might become inconsistent.
+
+
+Encapsulation: Singleton classes encapsulate their resources and provide controlled access to them. This promotes better organization and makes the code more maintainable.
+
+
+In summary, the Singleton pattern is used in this code to manage shared resources and ensure consistency across the application while also providing a clear and maintainable structure.
   
