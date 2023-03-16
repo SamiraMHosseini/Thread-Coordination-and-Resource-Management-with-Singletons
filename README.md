@@ -36,6 +36,10 @@ In the code above, CtrlSingleton is a Singleton class that manages the synchroni
 Here's a brief overview of its functionality:
 
 The GetInstance() method returns a reference to the unique instance of the CtrlSingleton class, ensuring that only one instance is created and used throughout the program.
+  
 The GetMutex() method returns a reference to the mutex (mtx_key) in the CtrlSingleton instance. This mutex is used to synchronize access to shared resources or code sections between different threads.
+  
 The GetCV() method returns a reference to the condition variable (cv_key) in the CtrlSingleton instance. This condition variable is used to block or notify threads in a synchronized manner.
+  
 In the main part of the code, the CtrlSingleton is used by the Controller class, which acts as a thread controller. The Controller class waits for a keypress from the user and then sends a signal to terminate the other spawned threads (A, B, C, and D). The CtrlSingleton's mutex and condition variable are used to synchronize the keypress event and the termination of the threads.
+  
